@@ -11,8 +11,8 @@
 | Resource | Link |
 |----------|------|
 | **Paper** | Coming soon |
-| **Project Page** | [English](https://meowmeowallday.github.io/AVI6/), [中文](https://meowmeowallday.github.io/AVI6/zh.html) |
-| **User Agreement** | [AVI6 EULA](https://meowmeowallday.github.io/AVI6/user_agreement.html) |
+| **Project Page** | [English](https://apal-seu.github.io/AVI6/), [中文](https://apal-seu.github.io/AVI6/zh.html) |
+| **User Agreement** | [AVI6 EULA](https://apal-seu.github.io/AVI6/user_agreement.html) |
 | **Dataset access** | Email [t.zhang@seu.edu.cn](mailto:t.zhang@seu.edu.cn?subject=AVI6%20Dataset%20Access%20Request) |
 
 ## News
@@ -54,7 +54,7 @@ AVI6 is a trait-activated multimodal dataset for personality and job-related com
 3. Email the signed PDF to **Tianyi Zhang** at [t.zhang@seu.edu.cn](mailto:t.zhang@seu.edu.cn), with subject `AVI6 Dataset Access Request`. Include your name, institution, position, and a brief research statement.
 
 ```bash
-git clone https://github.com/meowmeowallday/AVI6.git
+git clone https://github.com/APAL-SEU/AVI6.git
 cd AVI6
 ```
 
