@@ -11,8 +11,8 @@
 | Resource | Link |
 |----------|------|
 | **Paper** | Coming soon |
-| **Project Page** | [English](index.html), [中文](zh.html) |
-| **User Agreement** | [AVI6 EULA](user_agreement.html) |
+| **Project Page** | [English](https://meowmeowallday.github.io/AVI6/), [中文](https://meowmeowallday.github.io/AVI6/zh.html) |
+| **User Agreement** | [AVI6 EULA](https://meowmeowallday.github.io/AVI6/user_agreement.html) |
 | **Dataset access** | Email [t.zhang@seu.edu.cn](mailto:t.zhang@seu.edu.cn?subject=AVI6%20Dataset%20Access%20Request) |
 
 ## News
