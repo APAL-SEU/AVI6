@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AVI6 - Trait-Activated Multimodal Dataset for AVI Personality Assessment</title>
+  <meta name="description" content="AVI6 is a trait-activated multimodal dataset for personality and job-related competency assessment from asynchronous video interviews, with 3,876 videos from 646 participants.">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Noto+Sans+SC:wght@400;500;600&family=Noto+Serif+SC:wght@600&family=Source+Sans+3:wght@400;500;600&family=Source+Serif+4:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="static/css/style.css">
+</head>
+<body>
+  <nav class="nav" id="nav">
+    <div class="nav-inner">
+      <a class="nav-logo" href="index.html">
+        <img class="nav-logo-icon" src="favicon.svg" alt="">
+        AVI<span>6</span>
+      </a>
+      <button class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="#overview">Overview</a></li>
+        <li><a href="#dataset">Dataset</a></li>
+        <li><a href="#labels">Labels</a></li>
+        <li><a href="#access">Access</a></li>
+        <li><a href="#citation">Citation</a></li>
+        <li class="lang-switch">
+          <a class="lang-active" href="index.html">EN</a>
+          <span class="lang-divider">/</span>
+          <a href="zh.html">中文</a>
+        </li>
+        <li><a class="nav-cta" href="#access">Dataset</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <header class="hero">
+    <div class="container hero-content">
+      <div class="hero-badges">
+        <span class="badge badge-venue">Manuscript in preparation</span>
+        <span class="badge badge-type">Multimodal Dataset</span>
+      </div>
+      <h1 class="hero-title">AVI<span>6</span></h1>
+      <p class="hero-subtitle">
+        A Trait-Activated Multimodal Dataset for
+        <em>Personality</em> and <em>Competency Assessment</em>
+        in Asynchronous Video Interviews
+      </p>
+      <div class="authors">
+        <p class="author-list">
+          <a href="https://tianyi-zhang-tz.github.io/Tianyi-Zhang-TZ/">Tianyi Zhang</a><sup>1</sup>,
+          Jinwenxi Shang<sup>1</sup>,
+          Antonis Koutsoumpis<sup>2</sup>,
+          Wei Shan<sup>1</sup>,
+          Yuan Zong<sup>1,*</sup>,
+          Reinout E. de Vries<sup>3</sup>,
+          Wenming Zheng<sup>1</sup>
+        </p>
+        <div class="affiliations">
+          <p><sup>1</sup> Key Laboratory of Child Development and Learning Science (Ministry of Education), School of Biological Sciences and Medical Engineering, Southeast University, Nanjing, China</p>
+          <p><sup>2</sup> School of Business and Economics, Vrije Universiteit Amsterdam, the Netherlands</p>
+          <p><sup>3</sup> Department of Experimental and Applied Psychology, Vrije Universiteit Amsterdam, the Netherlands</p>
+        </div>
+        <p class="corresponding">* Corresponding author: Yuan Zong (<a href="mailto:xhzongyuan@seu.edu.cn">xhzongyuan@seu.edu.cn</a>)</p>
+      </div>
+      <div class="hero-actions">
+        <a class="btn btn-ghost btn-disabled" aria-disabled="true" title="Paper link will be added after submission">Paper</a>
+        <a class="btn btn-primary" href="#access">Dataset</a>
+        <a class="btn btn-ghost" href="#citation">Cite</a>
+        <a class="btn btn-ghost" href="user_agreement.html">User Agreement</a>
+      </div>
+    </div>
+  </header>
+
+  <section class="stats-bar">
+    <div class="container-wide stats-grid">
+      <div class="stat-card">
+        <span class="stat-value">646</span>
+        <span class="stat-label">Participants</span>
+      </div>
+      <div class="stat-card">
+        <span class="stat-value">3,876</span>
+        <span class="stat-label">Interview Videos</span>
+      </div>
+      <div class="stat-card">
+        <span class="stat-value">~85h</span>
+        <span class="stat-label">Video Footage</span>
+      </div>
+      <div class="stat-card">
+        <span class="stat-value">HEXACO</span>
+        <span class="stat-label">Traits + Competencies</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="overview">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Overview</span>
+        <h2>Psychometrically Grounded AVI Assessment</h2>
+        <p class="section-lead">
+          Existing multimodal personality datasets often rely on short, task-free social media videos and crowdsourced apparent-personality labels.
+          AVI6 instead collects structured asynchronous video interviews in a simulated job application, with questions designed from
+          <strong>Trait Activation Theory</strong> and annotations provided by trained psychologists and professional recruiters.
+        </p>
+      </div>
+
+      <figure class="teaser-figure">
+        <img src="static/images/overview.png" alt="Overview of the AVI6 dataset: multimodal data, interview pipeline, and expert annotation.">
+        <figcaption>
+          <strong>Figure 1.</strong> Overview of AVI6: multimodal interview data with HEXACO and competency annotations;
+          a three-stage pipeline from question development to self-report collection;
+          and expert annotation by trained personality psychologists and professional recruiters using BARS.
+        </figcaption>
+      </figure>
+
+      <div class="highlights">
+        <article class="highlight-card">
+          <span class="highlight-icon">01</span>
+          <h3>Trait-Activated Interview Protocol</h3>
+          <p>
+            Participants completed a simulated management traineeship application and answered
+            <span class="key-term">two generic selection questions</span> plus
+            <span class="key-term">four personality-targeted questions</span>
+            designed to activate Honesty-Humility, Extraversion, Agreeableness, and Conscientiousness.
+          </p>
+        </article>
+        <article class="highlight-card">
+          <span class="highlight-icon">02</span>
+          <h3>Expert-Validated Dual Labels</h3>
+          <p>
+            AVI6 provides HEXACO-100 self-reports, observer-rated personality from 12 trained psychologists,
+            recruiter-rated job competencies from 5 professionals, interview performance, and ICAR cognitive ability.
+            Observer ratings use Behaviorally Anchored Rating Scales (BARS).
+          </p>
+        </article>
+        <article class="highlight-card">
+          <span class="highlight-icon">03</span>
+          <h3>Open Multimodal Dataset</h3>
+          <p>
+            The release includes interview videos with aligned audio and transcripts, psychometric labels, demographics,
+            and an official subject-level split. The dataset is available to academic researchers after signing the user agreement.
+          </p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-alt" id="dataset">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Dataset</span>
+        <h2>The AVI6 Benchmark</h2>
+        <p class="section-lead">
+          AVI6 preserves a standardized recruitment context while providing multimodal behavioral signals
+          and psychologically grounded labels for personality and competency modeling.
+        </p>
+      </div>
+
+      <div class="dataset-layout">
+        <div class="dataset-top">
+          <div class="dataset-info">
+            <h3>Collection Protocol</h3>
+            <ul class="feature-list">
+              <li><strong>Recruitment:</strong> Native English-speaking adults in the United States via Prolific; 793 recruited, 646 retained after quality control and consent checks.</li>
+              <li><strong>Task:</strong> Simulated management traineeship AVI. Each response was recorded once (no re-recording), with a target length of 1–2 minutes.</li>
+              <li><strong>Questions:</strong> Two recruiter-informed generic questions and four TAT-based personality questions targeting H, X, A, and C.</li>
+              <li><strong>Self-reports:</strong> HEXACO-100 personality inventory and 28-item ICAR cognitive ability test, plus demographics.</li>
+              <li><strong>Annotation:</strong> At least 3 personality psychologists per participant and at least 2 professional recruiters, after 9-hour rater training.</li>
+            </ul>
+          </div>
+          <div class="dataset-specs">
+            <h3>Key Properties</h3>
+            <table class="spec-table">
+              <tbody>
+                <tr><th>Participants</th><td>646 (309 men / 309 women / 28 non-binary)</td></tr>
+                <tr><th>Videos</th><td>3,876 AVI responses (~85 hours)</td></tr>
+                <tr><th>Age</th><td>36.69 ± 11.92 years</td></tr>
+                <tr><th>Work experience</th><td>15.96 ± 11.36 years</td></tr>
+                <tr><th>Personality labels</th><td>HEXACO self-reports + observer ratings</td></tr>
+                <tr><th>Competency labels</th><td>4 competencies + overall interview performance</td></tr>
+                <tr><th>Cognitive ability</th><td>ICAR g-score (0–28, mean 14.51)</td></tr>
+                <tr><th>Official split</th><td>Subject-level 70 / 10 / 20 (452 / 64 / 130)</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="comparison-banner">
+          <div class="comparison-item comparison-old">
+            <span class="comparison-label">Prior datasets</span>
+            <p>Short in-the-wild clips | Crowdsourced first impressions | Coarse Big Five adjectives | Weak interview relevance</p>
+          </div>
+          <div class="comparison-arrow" aria-hidden="true">→</div>
+          <div class="comparison-item comparison-new">
+            <span class="comparison-label">AVI6</span>
+            <p>Structured AVIs | Trained psychologist &amp; recruiter ratings | HEXACO + competencies | Trait-activated questions</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="questions">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Protocol</span>
+        <h2>Interview Questions</h2>
+        <p class="section-lead">
+          Question order is fixed. Generic questions elicit broad selection-relevant information;
+          personality questions use a past-behavior format to activate specific HEXACO traits.
+        </p>
+      </div>
+      <table class="questions-table">
+        <thead>
+          <tr>
+            <th style="width: 8%">#</th>
+            <th>Interview question</th>
+            <th style="width: 16%">Type</th>
+            <th style="width: 22%">Target trait</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1</td>
+            <td class="q-text">What would you consider among your greatest strengths and weaknesses as an employee?</td>
+            <td>Generic</td>
+            <td>—</td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td class="q-text">How would your best friend describe you?</td>
+            <td>Generic</td>
+            <td>—</td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td class="q-text">Think of situations when you made professional decisions that could affect your status or how much money you make. How do you usually behave in such situations? Why do you think that is?</td>
+            <td>Personality</td>
+            <td>Honesty-Humility</td>
+          </tr>
+          <tr>
+            <td>4</td>
+            <td class="q-text">Think of situations when you joined a new team of people. How do you usually behave when you enter a new team? Why do you think that is?</td>
+            <td>Personality</td>
+            <td>Extraversion</td>
+          </tr>
+          <tr>
+            <td>5</td>
+            <td class="q-text">Think of situations when someone annoyed you. How do you usually react in such situations? Why do you think that is?</td>
+            <td>Personality</td>
+            <td>Agreeableness</td>
+          </tr>
+          <tr>
+            <td>6</td>
+            <td class="q-text">Think of situations when your work or workspace were not very organized. How typical is that of you? Why do you think that is?</td>
+            <td>Personality</td>
+            <td>Conscientiousness</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="section section-alt" id="labels">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Labels</span>
+        <h2>From HEXACO Traits to Job Competencies</h2>
+        <p class="section-lead">
+          Each participant is annotated with six HEXACO domains (self-report and observer-report)
+          and recruiter-rated workplace competencies. Observer personality ratings are provided separately
+          for generic questions and trait-activating questions.
+        </p>
+      </div>
+
+      <div class="traits-grid" style="margin-bottom: 1.25rem;">
+        <article class="trait-domain">
+          <span class="trait-code">H</span>
+          <h3>Honesty-Humility</h3>
+          <ul>
+            <li>Sincerity</li>
+            <li>Fairness</li>
+            <li>Greed Avoidance</li>
+            <li>Modesty</li>
+          </ul>
+        </article>
+        <article class="trait-domain">
+          <span class="trait-code">E</span>
+          <h3>Emotionality</h3>
+          <ul>
+            <li>Fearfulness</li>
+            <li>Anxiety</li>
+            <li>Dependence</li>
+            <li>Sentimentality</li>
+          </ul>
+        </article>
+        <article class="trait-domain">
+          <span class="trait-code">X</span>
+          <h3>Extraversion</h3>
+          <ul>
+            <li>Social Self-Esteem</li>
+            <li>Social Boldness</li>
+            <li>Sociability</li>
+            <li>Liveliness</li>
+          </ul>
+        </article>
+        <article class="trait-domain">
+          <span class="trait-code">A</span>
+          <h3>Agreeableness</h3>
+          <ul>
+            <li>Forgiveness</li>
+            <li>Gentleness</li>
+            <li>Flexibility</li>
+            <li>Patience</li>
+          </ul>
+        </article>
+        <article class="trait-domain">
+          <span class="trait-code">C</span>
+          <h3>Conscientiousness</h3>
+          <ul>
+            <li>Organization</li>
+            <li>Diligence</li>
+            <li>Perfectionism</li>
+            <li>Prudence</li>
+          </ul>
+        </article>
+        <article class="trait-domain">
+          <span class="trait-code">O</span>
+          <h3>Openness</h3>
+          <ul>
+            <li>Aesthetic Appreciation</li>
+            <li>Inquisitiveness</li>
+            <li>Creativity</li>
+            <li>Unconventionality</li>
+          </ul>
+        </article>
+      </div>
+
+      <div class="traits-grid traits-grid-5">
+        <article class="trait-domain">
+          <span class="trait-code">Int</span>
+          <h3>Integrity</h3>
+          <ul>
+            <li>Trustworthiness and ethical standards in workplace interaction</li>
+          </ul>
+        </article>
+        <article class="trait-domain">
+          <span class="trait-code">Col</span>
+          <h3>Collegiality</h3>
+          <ul>
+            <li>Openness to others and willingness to support colleagues</li>
+          </ul>
+        </article>
+        <article class="trait-domain">
+          <span class="trait-code">Sv</span>
+          <h3>Social versatility</h3>
+          <ul>
+            <li>Adapting behavior across social and organizational settings</li>
+          </ul>
+        </article>
+        <article class="trait-domain">
+          <span class="trait-code">Do</span>
+          <h3>Development orientation</h3>
+          <ul>
+            <li>Motivation to broaden skills and grow professionally</li>
+          </ul>
+        </article>
+        <article class="trait-domain">
+          <span class="trait-code">Ip</span>
+          <h3>Interview performance</h3>
+          <ul>
+            <li>Overall suitability for the management traineeship role</li>
+          </ul>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="access">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Access</span>
+        <h2>How to Obtain AVI6</h2>
+        <p class="section-lead">
+          AVI6 is released for academic, non-commercial research. Please sign the user agreement and email it to Tianyi Zhang.
+          Access is granted after the signed form is reviewed.
+        </p>
+      </div>
+
+      <div class="access-grid">
+        <div class="access-card">
+          <h3>Request procedure</h3>
+          <ol class="access-steps">
+            <li><span class="step-num">1</span><span>Download the <a href="user_agreement.html">AVI6 User Agreement</a> and print or export it as PDF.</span></li>
+            <li><span class="step-num">2</span><span>The form must be signed by a researcher with a permanent position (e.g., professor or assistant/associate professor). Students may be listed as participants.</span></li>
+            <li><span class="step-num">3</span><span>Email the signed PDF to Tianyi Zhang. Include your name, institution, position, and a brief description of the intended research use.</span></li>
+          </ol>
+          <p class="mail-box">
+            Contact: <strong>Tianyi Zhang</strong><br>
+            Email: <a href="mailto:t.zhang@seu.edu.cn?subject=AVI6%20Dataset%20Access%20Request">t.zhang@seu.edu.cn</a><br>
+            Subject: <code>AVI6 Dataset Access Request</code>
+          </p>
+        </div>
+        <div class="access-card">
+          <h3>What is released</h3>
+          <ul class="feature-list">
+            <li>Asynchronous video interview recordings from 646 participants (6 questions each)</li>
+            <li>Aligned audio and textual transcripts</li>
+            <li>HEXACO self-reports and observer-rated personality scores</li>
+            <li>Recruiter-rated competencies, interview performance, and ICAR cognitive ability</li>
+            <li>Demographic information and the official subject-level data split</li>
+          </ul>
+        </div>
+      </div>
+
+      <p class="notice">
+        The dataset may be used only for academic, non-commercial, not-for-profit research.
+        Redistribution is not permitted. Videos and still frames must not be used in any way that could cause
+        the original participants embarrassment or mental anguish. See the
+        <a href="user_agreement.html">User Agreement</a> for the full terms.
+      </p>
+    </div>
+  </section>
+
+  <section class="section section-alt" id="citation">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Citation</span>
+        <h2>How to Cite</h2>
+        <p class="section-lead">
+          If you use the AVI6 dataset in your research, please cite our paper.
+          Venue, volume, and DOI will be added after submission.
+        </p>
+      </div>
+      <div class="citation-box">
+        <button class="btn btn-copy" id="copy-btn" type="button">
+          <span class="copy-text">Copy BibTeX</span>
+          <span class="copy-done" hidden>Copied!</span>
+        </button>
+        <pre class="bibtex" id="bibtex"><code>@article{zhang2026avi6,
+  author  = {Zhang, Tianyi and Shang, Jinwenxi and Koutsoumpis, Antonis and Shan, Wei and Zong, Yuan and de Vries, Reinout E. and Zheng, Wenming},
+  title   = {AVI-Personality: A Trait-Activated Multimodal Dataset for Personality and Competency Assessment in Asynchronous Video Interviews},
+  journal = {},
+  year    = {2026},
+  note    = {Manuscript in preparation}
+}</code></pre>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container-wide footer-inner">
+      <div class="footer-brand">
+        <span class="footer-logo">AVI6</span>
+        <p>Key Laboratory of Child Development and Learning Science (Ministry of Education), Southeast University, with collaborators at Vrije Universiteit Amsterdam.</p>
+      </div>
+      <div class="footer-links">
+        <a href="#access">Dataset</a>
+        <a href="user_agreement.html">Agreement</a>
+        <a href="mailto:t.zhang@seu.edu.cn">Contact</a>
+        <a href="#citation">Citation</a>
+      </div>
+      <p class="footer-copy">
+        © 2026 AVI6 Authors. Released for academic research.
+        This work was supported by NSFC (62506070), the Natural Science Foundation of Jiangsu Province (BK20251348),
+        the Research Project of Humanities and Social Sciences of the Ministry of Education (25YJCZH372),
+        and the Fundamental Research Funds for the Central Universities (2242026K30053).
+      </p>
+    </div>
+  </footer>
+
+  <script src="static/js/main.js"></script>
+</body>
+</html>

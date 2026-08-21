@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AVI6 - 面向异步视频面试人格与胜任力评估的多模态数据集</title>
+  <meta name="description" content="AVI6 是面向异步视频面试人格与岗位胜任力评估的特质激活多模态数据集，包含 646 名被试的 3,876 段面试视频。">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Noto+Sans+SC:wght@400;500;600&family=Noto+Serif+SC:wght@600&family=Source+Sans+3:wght@400;500;600&family=Source+Serif+4:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="static/css/style.css">
+</head>
+<body class="lang-zh">
+  <nav class="nav" id="nav">
+    <div class="nav-inner">
+      <a class="nav-logo" href="zh.html">
+        <img class="nav-logo-icon" src="favicon.svg" alt="">
+        AVI<span>6</span>
+      </a>
+      <button class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-label="打开菜单">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="#overview">概述</a></li>
+        <li><a href="#dataset">数据集</a></li>
+        <li><a href="#labels">标注体系</a></li>
+        <li><a href="#access">获取数据</a></li>
+        <li><a href="#citation">引用</a></li>
+        <li class="lang-switch">
+          <a href="index.html">EN</a>
+          <span class="lang-divider">/</span>
+          <a class="lang-active" href="zh.html">中文</a>
+        </li>
+        <li><a class="nav-cta" href="#access">数据集</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <header class="hero">
+    <div class="container hero-content">
+      <div class="hero-badges">
+        <span class="badge badge-venue">论文撰写中</span>
+        <span class="badge badge-type">多模态数据集</span>
+      </div>
+      <h1 class="hero-title">AVI<span>6</span></h1>
+      <p class="hero-subtitle">
+        面向异步视频面试中<strong>人格特质</strong>与<strong>岗位胜任力评估</strong>的特质激活多模态数据集
+      </p>
+      <div class="authors">
+        <p class="author-list">
+          <a href="https://tianyi-zhang-tz.github.io/Tianyi-Zhang-TZ/">Tianyi Zhang</a><sup>1</sup>,
+          Jinwenxi Shang<sup>1</sup>,
+          Antonis Koutsoumpis<sup>2</sup>,
+          Wei Shan<sup>1</sup>,
+          Yuan Zong<sup>1,*</sup>,
+          Reinout E. de Vries<sup>3</sup>,
+          Wenming Zheng<sup>1</sup>
+        </p>
+        <div class="affiliations">
+          <p><sup>1</sup> 东南大学生物科学与医学工程学院，儿童发展与学习科学教育部重点实验室</p>
+          <p><sup>2</sup> 阿姆斯特丹自由大学商学院</p>
+          <p><sup>3</sup> 阿姆斯特丹自由大学实验与应用心理学系</p>
+        </div>
+        <p class="corresponding">* 通讯作者：Yuan Zong（<a href="mailto:xhzongyuan@seu.edu.cn">xhzongyuan@seu.edu.cn</a>）</p>
+      </div>
+      <div class="hero-actions">
+        <a class="btn btn-ghost btn-disabled" aria-disabled="true" title="论文链接将在投稿后补充">论文</a>
+        <a class="btn btn-primary" href="#access">数据集</a>
+        <a class="btn btn-ghost" href="#citation">引用</a>
+        <a class="btn btn-ghost" href="user_agreement.html">使用协议</a>
+      </div>
+    </div>
+  </header>
+
+  <section class="stats-bar">
+    <div class="container-wide stats-grid">
+      <div class="stat-card">
+        <span class="stat-value">646</span>
+        <span class="stat-label">名被试</span>
+      </div>
+      <div class="stat-card">
+        <span class="stat-value">3,876</span>
+        <span class="stat-label">段面试视频</span>
+      </div>
+      <div class="stat-card">
+        <span class="stat-value">~85h</span>
+        <span class="stat-label">视频总时长</span>
+      </div>
+      <div class="stat-card">
+        <span class="stat-value">HEXACO</span>
+        <span class="stat-label">人格 + 胜任力标注</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="overview">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">概述</span>
+        <h2>具有心理测量学基础的 AVI 评估数据</h2>
+        <p class="section-lead">
+          现有多模态人格数据集多来自短时、无任务约束的社交媒体视频，并依赖众包的外表人格标注。
+          AVI6 在模拟求职场景中采集结构化异步视频面试，面试问题依据<strong>特质激活理论</strong>设计，
+          标注由受训心理学家与职业招聘官完成。
+        </p>
+      </div>
+
+      <figure class="teaser-figure">
+        <img src="static/images/overview.png" alt="AVI6 数据集概述：多模态数据、面试采集流程与专家标注。">
+        <figcaption>
+          <strong>图 1.</strong> AVI6 概述：包含 HEXACO 与胜任力标注的多模态面试数据；
+          从题目设计到自评采集的三阶段流程；以及心理学家与招聘官基于 BARS 的专家标注。
+        </figcaption>
+      </figure>
+
+      <div class="highlights">
+        <article class="highlight-card">
+          <span class="highlight-icon">01</span>
+          <h3>特质激活面试范式</h3>
+          <p>
+            被试完成模拟管理培训生申请，并回答
+            <span class="key-term">2 道通用选拔题</span>与
+            <span class="key-term">4 道人格定向题</span>，
+            分别用于激活诚实-谦逊、外向性、宜人性与尽责性。
+          </p>
+        </article>
+        <article class="highlight-card">
+          <span class="highlight-icon">02</span>
+          <h3>双视角专家标注</h3>
+          <p>
+            数据集提供 HEXACO-100 自评、12 名受训心理学家的观察者评分、
+            5 名职业招聘官的岗位胜任力评分、面试整体表现以及 ICAR 认知能力。
+            观察者评分采用行为锚定量表（BARS）。
+          </p>
+        </article>
+        <article class="highlight-card">
+          <span class="highlight-icon">03</span>
+          <h3>面向研究的开放数据</h3>
+          <p>
+            公开内容包括面试视频、对齐音频与转写文本、心理测量学标签、人口学信息，以及官方的被试级划分。
+            研究人员签署使用协议后即可申请获取。
+          </p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-alt" id="dataset">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">数据集</span>
+        <h2>AVI6 基准数据</h2>
+        <p class="section-lead">
+          AVI6 保留标准化招聘情境，同时提供多模态行为信号与具有心理测量学依据的人格、胜任力标签，
+          用于自动评估模型的开发与验证。
+        </p>
+      </div>
+
+      <div class="dataset-layout">
+        <div class="dataset-top">
+          <div class="dataset-info">
+            <h3>采集流程</h3>
+            <ul class="feature-list">
+              <li><strong>招募：</strong>通过 Prolific 招募居住在美国的英语母语成年人；793 人入组，经质量控制与知情同意筛查后保留 646 人。</li>
+              <li><strong>任务：</strong>模拟管理培训生岗位的异步视频面试。每题仅可录制一次，目标时长 1–2 分钟。</li>
+              <li><strong>题目：</strong>2 道经招聘官评估的通用题，以及 4 道基于特质激活理论、分别针对 H、X、A、C 的人格题。</li>
+              <li><strong>自评：</strong>HEXACO-100 人格问卷、28 题 ICAR 认知能力测验，以及人口学信息。</li>
+              <li><strong>标注：</strong>每名被试至少由 3 名人格心理学家与 2 名职业招聘官评分，评分前完成 9 小时培训。</li>
+            </ul>
+          </div>
+          <div class="dataset-specs">
+            <h3>核心属性</h3>
+            <table class="spec-table">
+              <tbody>
+                <tr><th>被试</th><td>646 人（男 309 / 女 309 / 非二元 28）</td></tr>
+                <tr><th>视频</th><td>3,876 段 AVI 回答（约 85 小时）</td></tr>
+                <tr><th>年龄</th><td>36.69 ± 11.92 岁</td></tr>
+                <tr><th>工作经验</th><td>15.96 ± 11.36 年</td></tr>
+                <tr><th>人格标签</th><td>HEXACO 自评 + 观察者评分</td></tr>
+                <tr><th>胜任力标签</th><td>4 项胜任力 + 面试整体表现</td></tr>
+                <tr><th>认知能力</th><td>ICAR g 分数（0–28，均值 14.51）</td></tr>
+                <tr><th>官方划分</th><td>被试级 70 / 10 / 20（452 / 64 / 130）</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="comparison-banner">
+          <div class="comparison-item comparison-old">
+            <span class="comparison-label">既有数据集</span>
+            <p>短时网络视频 | 众包第一印象 | 粗粒度大五人格形容词 | 与面试任务关联弱</p>
+          </div>
+          <div class="comparison-arrow" aria-hidden="true">→</div>
+          <div class="comparison-item comparison-new">
+            <span class="comparison-label">AVI6</span>
+            <p>结构化 AVI | 心理学家与招聘官评分 | HEXACO + 岗位胜任力 | 特质激活面试题</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="questions">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">面试题目</span>
+        <h2>结构化提问设计</h2>
+        <p class="section-lead">
+          题目顺序固定。通用题用于引出选拔相关信息；人格题采用过去行为提问，以激活特定 HEXACO 特质。
+        </p>
+      </div>
+      <table class="questions-table">
+        <thead>
+          <tr>
+            <th style="width: 8%">题号</th>
+            <th>面试问题</th>
+            <th style="width: 16%">类型</th>
+            <th style="width: 22%">目标特质</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1</td>
+            <td class="q-text">作为员工，你认为自己最大的优点和不足是什么？</td>
+            <td>通用题</td>
+            <td>—</td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td class="q-text">你最好的朋友会如何描述你？</td>
+            <td>通用题</td>
+            <td>—</td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td class="q-text">请回想你做过可能影响自身地位或收入的职业决策。在这类情境中你通常如何表现？你认为原因是什么？</td>
+            <td>人格题</td>
+            <td>诚实-谦逊</td>
+          </tr>
+          <tr>
+            <td>4</td>
+            <td class="q-text">请回想你加入新团队的情境。进入新团队时你通常如何表现？你认为原因是什么？</td>
+            <td>人格题</td>
+            <td>外向性</td>
+          </tr>
+          <tr>
+            <td>5</td>
+            <td class="q-text">请回想有人惹恼你的情境。在这类情况下你通常如何反应？你认为原因是什么？</td>
+            <td>人格题</td>
+            <td>宜人性</td>
+          </tr>
+          <tr>
+            <td>6</td>
+            <td class="q-text">请回想你的工作或工位不够有条理的情境。这对你而言有多典型？你认为原因是什么？</td>
+            <td>人格题</td>
+            <td>尽责性</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="section section-alt" id="labels">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">标注体系</span>
+        <h2>从 HEXACO 特质到岗位胜任力</h2>
+        <p class="section-lead">
+          每名被试均有 HEXACO 六维自评与观察者评分，以及招聘官评定的岗位胜任力。
+          观察者人格评分分别基于通用题与特质激活题给出。
+        </p>
+      </div>
+
+      <div class="traits-grid" style="margin-bottom: 1.25rem;">
+        <article class="trait-domain">
+          <span class="trait-code">H</span>
+          <h3>诚实-谦逊</h3>
+          <ul>
+            <li>真诚 Sincerity</li>
+            <li>公平 Fairness</li>
+            <li>避贪 Greed Avoidance</li>
+            <li>谦虚 Modesty</li>
+          </ul>
+        </article>
+        <article class="trait-domain">
+          <span class="trait-code">E</span>
+          <h3>情绪性</h3>
+          <ul>
+            <li>恐惧 Fearfulness</li>
+            <li>焦虑 Anxiety</li>
+            <li>依赖 Dependence</li>
+            <li>感伤 Sentimentality</li>
+          </ul>
+        </article>
+        <article class="trait-domain">
+          <span class="trait-code">X</span>
+          <h3>外向性</h3>
+          <ul>
+            <li>社交自尊 Social Self-Esteem</li>
+            <li>社交勇敢 Social Boldness</li>
+            <li>社交性 Sociability</li>
+            <li>活力 Liveliness</li>
+          </ul>
+        </article>
+        <article class="trait-domain">
+          <span class="trait-code">A</span>
+          <h3>宜人性</h3>
+          <ul>
+            <li>宽恕 Forgiveness</li>
+            <li>温和 Gentleness</li>
+            <li>灵活 Flexibility</li>
+            <li>耐心 Patience</li>
+          </ul>
+        </article>
+        <article class="trait-domain">
+          <span class="trait-code">C</span>
+          <h3>尽责性</h3>
+          <ul>
+            <li>条理 Organization</li>
+            <li>勤奋 Diligence</li>
+            <li>完美主义 Perfectionism</li>
+            <li>审慎 Prudence</li>
+          </ul>
+        </article>
+        <article class="trait-domain">
+          <span class="trait-code">O</span>
+          <h3>开放性</h3>
+          <ul>
+            <li>审美欣赏 Aesthetic Appreciation</li>
+            <li>探究欲 Inquisitiveness</li>
+            <li>创造性 Creativity</li>
+            <li>非传统 Unconventionality</li>
+          </ul>
+        </article>
+      </div>
+
+      <div class="traits-grid traits-grid-5">
+        <article class="trait-domain">
+          <span class="trait-code">Int</span>
+          <h3>正直</h3>
+          <ul>
+            <li>在互动中展现可信度、公平与职业道德</li>
+          </ul>
+        </article>
+        <article class="trait-domain">
+          <span class="trait-code">Col</span>
+          <h3>协作精神</h3>
+          <ul>
+            <li>关注他人并愿意配合、支持同事工作</li>
+          </ul>
+        </article>
+        <article class="trait-domain">
+          <span class="trait-code">Sv</span>
+          <h3>社交适应性</h3>
+          <ul>
+            <li>在不同社交与组织情境中有效调整行为</li>
+          </ul>
+        </article>
+        <article class="trait-domain">
+          <span class="trait-code">Do</span>
+          <h3>发展导向</h3>
+          <ul>
+            <li>愿意拓展知识技能并实现职业成长</li>
+          </ul>
+        </article>
+        <article class="trait-domain">
+          <span class="trait-code">Ip</span>
+          <h3>面试整体表现</h3>
+          <ul>
+            <li>对管理培训生岗位要求的总体胜任程度</li>
+          </ul>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="access">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">获取数据</span>
+        <h2>如何申请 AVI6</h2>
+        <p class="section-lead">
+          AVI6 面向学术、非商业研究开放。请签署使用协议并发送至张天翼老师邮箱，审核通过后即可获取数据。
+        </p>
+      </div>
+
+      <div class="access-grid">
+        <div class="access-card">
+          <h3>申请步骤</h3>
+          <ol class="access-steps">
+            <li><span class="step-num">1</span><span>下载 <a href="user_agreement.html">AVI6 使用协议</a>，打印或导出为 PDF。</span></li>
+            <li><span class="step-num">2</span><span>须由具有固定教职的研究人员签署（如教授、副教授、助理教授）。学生可作为参与者列入。</span></li>
+            <li><span class="step-num">3</span><span>将签字后的 PDF 发送至张天翼老师，邮件中请注明姓名、单位、职务及拟开展的研究用途。</span></li>
+          </ol>
+          <p class="mail-box">
+            联系人：<strong>张天翼</strong><br>
+            邮箱：<a href="mailto:t.zhang@seu.edu.cn?subject=AVI6%20Dataset%20Access%20Request">t.zhang@seu.edu.cn</a><br>
+            邮件主题：<code>AVI6 Dataset Access Request</code>
+          </p>
+        </div>
+        <div class="access-card">
+          <h3>开放内容</h3>
+          <ul class="feature-list">
+            <li>646 名被试的异步视频面试录像（每人 6 题）</li>
+            <li>对齐的音频与文本转写</li>
+            <li>HEXACO 自评与观察者人格评分</li>
+            <li>招聘官胜任力评分、面试整体表现与 ICAR 认知能力</li>
+            <li>人口学信息及官方被试级数据划分</li>
+          </ul>
+        </div>
+      </div>
+
+      <p class="notice">
+        本数据集仅可用于学术、非商业、非营利研究，禁止再分发。
+        视频与静帧不得以任何可能给原始被试造成尴尬或精神伤害的方式使用。
+        完整条款见 <a href="user_agreement.html">使用协议</a>。
+      </p>
+    </div>
+  </section>
+
+  <section class="section section-alt" id="citation">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">引用</span>
+        <h2>如何引用</h2>
+        <p class="section-lead">
+          若在研究中使用 AVI6 数据集，请引用我们的论文。期刊、卷期与 DOI 将在投稿后补充。
+        </p>
+      </div>
+      <div class="citation-box">
+        <button class="btn btn-copy" id="copy-btn" type="button">
+          <span class="copy-text">复制 BibTeX</span>
+          <span class="copy-done" hidden>已复制！</span>
+        </button>
+        <pre class="bibtex" id="bibtex"><code>@article{zhang2026avi6,
+  author  = {Zhang, Tianyi and Shang, Jinwenxi and Koutsoumpis, Antonis and Shan, Wei and Zong, Yuan and de Vries, Reinout E. and Zheng, Wenming},
+  title   = {AVI-Personality: A Trait-Activated Multimodal Dataset for Personality and Competency Assessment in Asynchronous Video Interviews},
+  journal = {},
+  year    = {2026},
+  note    = {Manuscript in preparation}
+}</code></pre>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container-wide footer-inner">
+      <div class="footer-brand">
+        <span class="footer-logo">AVI6</span>
+        <p>东南大学儿童发展与学习科学教育部重点实验室，合作单位为阿姆斯特丹自由大学。</p>
+      </div>
+      <div class="footer-links">
+        <a href="#access">数据集</a>
+        <a href="user_agreement.html">使用协议</a>
+        <a href="mailto:t.zhang@seu.edu.cn">联系</a>
+        <a href="#citation">引用</a>
+      </div>
+      <p class="footer-copy">
+        © 2026 AVI6 作者团队。仅供学术研究使用。
+        本工作得到国家自然科学基金（62506070）、江苏省自然科学基金（BK20251348）、
+        教育部人文社会科学研究项目（25YJCZH372）以及中央高校基本科研业务费（2242026K30053）资助。
+      </p>
+    </div>
+  </footer>
+
+  <script src="static/js/main.js"></script>
+</body>
+</html>
